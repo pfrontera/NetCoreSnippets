@@ -8,4 +8,5 @@ public interface IConcurrentBox
     Task WhenAllAsync();
     Task WhenAllAsyncLinq();
     Task WhenAnyAsync();
+    Task ProcessTasksAsync();
 }

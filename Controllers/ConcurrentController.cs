@@ -64,5 +64,15 @@ namespace NetCoreSnippets.Controllers
         {
             return _concurrentBox.WhenAnyAsync();
         }
+
+        /// <summary>    
+        /// Processing Tasks as they complete.  
+        /// </summary>     
+        [HttpGet]
+        [Route("ProcessTasksAsync")]
+        public Task ProcessTasksAsync()
+        {
+            return _concurrentBox.ProcessTasksAsync();
+        }
     }
 }
