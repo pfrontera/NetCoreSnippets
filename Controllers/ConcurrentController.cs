@@ -1,5 +1,6 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using NetCoreSnippets.Concurrency;
 
 namespace NetCoreSnippets.Controllers
 {
@@ -66,13 +67,32 @@ namespace NetCoreSnippets.Controllers
         }
 
         /// <summary>    
-        /// Processing Tasks as they complete.  
+        /// Processing Tasks as they complete doing some processing on each task after it completes.  
         /// </summary>     
         [HttpGet]
         [Route("ProcessTasksAsync")]
         public Task ProcessTasksAsync()
         {
             return _concurrentBox.ProcessTasksAsync();
+        }
+        
+        /// <summary>    
+        /// Handling an exception from an async Task method.  
+        /// </summary>     
+        [HttpGet("HandlingExceptionAsync")]
+        public Task HandlingExceptionAsync()
+        {
+            return _concurrentBox.HandlingExceptionAsync();
+        }
+        
+        /// <summary>    
+        /// Handling all exception from a Task list.  
+        /// </summary>     
+        [HttpGet]
+        [Route("HandlingAggregateExceptionAsync")]
+        public Task HandlingAggregateExceptionAsync()
+        {
+            return _concurrentBox.HandlingAggregateExceptionAsync();
         }
     }
 }
